@@ -1,0 +1,24 @@
+ch 5, problem 2 
+
+mysql> select a.account_id, c.fed_id, p.name from account A INNER JOIN product p on a.product_cd = p.product_cd INNER JOIN customer c ON c.cust_id = a.cust_id WHERE c.cust_type_cd <> 'I';
++------------+------------+-------------------------+
+| account_id | fed_id     | name                    |
++------------+------------+-------------------------+
+|         24 | 04-1111111 | checking account        |
+|         25 | 04-1111111 | business line of credit |
+|         27 | 04-2222222 | business line of credit |
+|         28 | 04-3333333 | checking account        |
+|         29 | 04-4444444 | small business loan     |
++------------+------------+-------------------------+
+5 rows in set (0.00 sec)
+
+problem 3:
+
+mysql> select e_a.fname e_fname, e_a.lname e_lastname, e_b.fname boss_fname, e_b.lname boss_lname from employee e_a INNER JOIN employee e_b ON e_a.superior_emp_id = e_b.emp_id WHERE e_a.dept_id <> e_b.dept_id;
++---------+------------+------------+------------+
+| e_fname | e_lastname | boss_fname | boss_lname |
++---------+------------+------------+------------+
+| Susan   | Hawthorne  | Robert     | Tyler      |
+| John    | Gooding    | Susan      | Hawthorne  |
++---------+------------+------------+------------+
+2 rows in set (0.00 sec)
